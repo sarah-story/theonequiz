@@ -28,10 +28,20 @@ http-server
 ## JavaScript concepts
 1. Explain what hoisting is. Provide your answer below.
 
-  **Student answer: **
+  Hoisting is when a variable or function declaration is moved to the top of the scope by a JavaScript interpreter. JavaScript interpreters move variable and function declarations to the top of the scope so that they can be accessed by the rest of the code. Variable assignments and function expressions are not hoisted.
+
 1. What is a callback? Why do we use them in JavaScript? Provide your answer, and code a simple example below.
 
-  **Student answer: **
+  A callback is a function that is passed as a parameter and called by another function. We use them in JavaScript when we don't want the callback function to execute until the function that's calling it does. They are also useful when writing modular JavaScript so that large functions can be broken up into smaller ones.
+
+  Example:
+
+```
+$("#button").click(function() {
+  console.log("Hello World!")
+});
+```
+
 
 ## Functions and operators
 
@@ -63,10 +73,25 @@ http-server
   **Student answer:**
 
 1. Why did we use Promises when dealing with asynchronous XHR calls?
-  **Student answer:**
+  Because a promise will wait until the asynchronous XHR call has been made and received a response or an error. If a promise is called in a function, the function will not execute until the promise returns a response. 
 
 1. Provide a simple example of the syntax for handling a Promise.
-  **Student answer:**
+
+```
+function promise() {
+  var deferred = Q.defer();
+
+  $.ajax({
+    url: data.json
+  }).done(function(data) {
+    deferred.resolve(data);
+  }).error(function(error) {
+    deferred.reject(error);
+  });
+
+  return deferred.promise;
+}
+```
 
 ## Scope and this
 
