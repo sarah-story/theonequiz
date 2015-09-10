@@ -70,7 +70,7 @@ $("#button").click(function() {
 
 1. Write a function named `getAnimals` that uses the jQuery `ajax` method to retrieve the `data/animals.json` file. When you execute the functions, it should just log *just the array* of animals to the console when the async is complete. Make sure you provide a prompt of "animals" when logging the array.
 1. What are the four HTTP verbs that you can use in an XHR that correspond to the CRUD actions (create, read, update, delete)?
-  **Student answer:**
+  POST, GET, PUT, DELETE
 
 1. Why did we use Promises when dealing with asynchronous XHR calls?
   Because a promise will wait until the asynchronous XHR call has been made and received a response or an error. If a promise is called in a function, the function will not execute until the promise returns a response. 
@@ -82,7 +82,7 @@ function promise() {
   var deferred = Q.defer();
 
   $.ajax({
-    url: data.json
+    url: 'data.json'
   }).done(function(data) {
     deferred.resolve(data);
   }).error(function(error) {
@@ -97,7 +97,7 @@ function promise() {
 
 What gets logged to the console when the following code executes? Explain why.
 
-**Student answer: **
+It will log 42 because the function is called in the global scope. So `this.answer = "42"` because 'this' is the global scope and `answer = "42"` in the global scope.
 
 ```
 var answer = "42";
